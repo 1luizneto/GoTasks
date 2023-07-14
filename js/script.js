@@ -30,12 +30,23 @@ function createTask(e) {
 
     const newTaks = {
         description: inputDescriptioon.value,
-        date: new Date(inputDate.value).toLocaleDateString(),
+        date: new Date(inputDate.value).toLocaleDateString('pt-BR', {timeZone: 'UTC'}),
         id: Math.floor(Math.random() * 10000)
     }
 
-    localStorage.setItem('@GoTasks', JSON.stringify([newTaks]));
+    const allTasks = loadTasks();
+
+    localStorage.setItem('@GoTasks', JSON.stringify([...allTasks, newTaks]));
 
     toggleModal();
     clearFields();
+}
+
+function loadTasks() {
+    return JSON.parse(localStorage.getItem('@GoTasks')) || [];
+}
+
+function upadateCountTasks(){
+    const allTasks = loadTasks();
+    countTasks.innerHTML = allTasks.length;
 }
