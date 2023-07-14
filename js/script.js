@@ -8,16 +8,34 @@ const countTasks = document.getElementById('count-tasks');
 const btnCreateTask = document.getElementById('btn-create-task');
 
 
-function openModal(){
-    modal.style.display = 'flex';
+function toggleModal() {
+    modal.classList.toggle('modal-visible');
 }
 
-function closeModal(){
-    modal.style.display = 'none';
-    clearFields();
-}
-
-function clearFields(){
+function clearFields() {
     inputDate.value = '';
     inputDescriptioon.value = '';
+}
+
+
+btnCreateTask.addEventListener('click', createTask);
+
+function createTask(e) {
+    e.preventDefault();
+
+    if (!inputDescriptioon.value || !inputDate.value) {
+        alert('Preencha todos os campos!');
+        return;
+    }
+
+    const newTaks = {
+        description: inputDescriptioon.value,
+        date: new Date(inputDate.value).toLocaleDateString(),
+        id: Math.floor(Math.random() * 10000)
+    }
+
+    localStorage.setItem('@GoTasks', JSON.stringify([newTaks]));
+
+    toggleModal();
+    clearFields();
 }

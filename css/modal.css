@@ -75,3 +75,7 @@
 .buttons-modal .btn-save:hover {
     background-color: #186441;
 }
+
+.modal-background.modal-visible {
+    display: flex;
+}
