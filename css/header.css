@@ -1,0 +1,13 @@
+.header {
+    background: linear-gradient(to right, #208b59, #38976b, #208b59);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header h1 a {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 200;
+}
