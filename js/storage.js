@@ -1,5 +1,5 @@
 function getTasks(){
-    return JSON.parse(localStorage.getItem('@GoTasks'));
+    return JSON.parse(localStorage.getItem('@GoTasks')) || [];
 }
 
 function setTasks(tasks){
