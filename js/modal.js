@@ -1,24 +1,7 @@
-const table = document.getElementById('table-body');
-const modal = document.getElementById('modal');
-const form = document.getElementById('form');
 const inputDescriptioon = document.getElementById('description');
 const inputDate = document.getElementById('date');
-const loadingMessage = document.getElementById('loading-message');
-const countTasks = document.getElementById('count-tasks');
+const modal = document.getElementById('modal');
 const btnCreateTask = document.getElementById('btn-create-task');
-
-
-function toggleModal() {
-    modal.classList.toggle('modal-visible');
-}
-
-function clearFields() {
-    inputDate.value = '';
-    inputDescriptioon.value = '';
-}
-
-
-btnCreateTask.addEventListener('click', createTask);
 
 function createTask(e) {
     e.preventDefault();
@@ -42,11 +25,13 @@ function createTask(e) {
     clearFields();
 }
 
-function loadTasks() {
-    return JSON.parse(localStorage.getItem('@GoTasks')) || [];
+function toggleModal() {
+    modal.classList.toggle('modal-visible');
 }
 
-function upadateCountTasks(){
-    const allTasks = loadTasks();
-    countTasks.innerHTML = allTasks.length;
+function clearFields() {
+    inputDate.value = '';
+    inputDescriptioon.value = '';
 }
+
+btnCreateTask.addEventListener('click', createTask);
