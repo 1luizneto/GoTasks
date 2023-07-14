@@ -38,3 +38,9 @@ button {
 .fa-trash {
     color: #de3f4e;
 }
+
+table {
+    width: 100%;
+    text-align: left;
+    border-spacing: 0 .5rem;
+}
