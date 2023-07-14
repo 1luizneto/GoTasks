@@ -13,6 +13,7 @@
           rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/beb343ffe8.js" crossorigin="anonymous" defer></script>
+    <script src="./js/script.js" defer></script>
 
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/header.css">
@@ -29,7 +30,7 @@
 
 <main class="container">
     <header class="main-header">
-        <button class="btn-new-task">Nova tarefa</button>
+        <button class="btn-new-task" onclick="openModal()">Nova tarefa</button>
         <span class="total-tasks">
             <span id="count-tasks">0</span> tarefas registradas
         </span>
@@ -43,7 +44,7 @@
             <th>Ações</th>
         </tr>
         </thead>
-        <tbody id="table">
+        <tbody id="table-body">
         <tr>
             <td>Estudar HTML</td>
             <td>13/07/2023</td>
@@ -81,10 +82,10 @@
             </form>
 
             <div class="buttons-modal">
-                <button class="btn-cancel" type="button" onclick="">
+                <button class="btn-cancel" type="button" onclick="closeModal()">
                     Cancelar
                 </button>
-                <button class="btn-save" type="button">
+                <button class="btn-save" type="button" id="btn-create-task">
                     Salvar
                 </button>
             </div>
