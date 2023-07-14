@@ -34,11 +34,24 @@ function innerHtmlTasks(task) {
     <td>${task.description}</td>
     <td>${task.date}</td>
     <td>
-        <a href="#" onclick="">
+        <a href="#" onclick="removeTask(${task.id})">
             <i class="fas fa-trash"></i>
         </a>
     </td>
     `;
 }
 
+function removeTask(id){
+    const allTasks = getTasks();
+    const tasksFiltered = allTasks.filter(task => task.id !== id);
+
+    setTasks(tasksFiltered);
+    reload();
+}
+
+
+function reload(){
+    table.innerHTML = '';
+    fillTable();
+}
 
