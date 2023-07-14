@@ -1,13 +1,15 @@
 const inputDescriptioon = document.getElementById('description');
 const inputDate = document.getElementById('date');
 const modal = document.getElementById('modal');
+const alertElement = document.getElementById('alert');
 const btnCreateTask = document.getElementById('btn-create-task');
 
 function createTask(e) {
     e.preventDefault();
 
     if (!inputDescriptioon.value || !inputDate.value) {
-        alert('Preencha todos os campos!');
+        alertElement.style.display = 'block';
+        closeAlert();
         return;
     }
 
@@ -33,6 +35,12 @@ function toggleModal() {
 function clearFields() {
     inputDate.value = '';
     inputDescriptioon.value = '';
+}
+
+function closeAlert(){
+    setTimeout(() => {
+        alertElement.style.display = 'none'
+    }, 3000)
 }
 
 btnCreateTask.addEventListener('click', createTask);
